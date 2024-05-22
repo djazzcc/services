@@ -1,0 +1,171 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="DjangoUnresolvedUrlInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
+    <inspection_tool class="DuplicatedCode" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <Languages>
+        <language minSize="152" name="Python" />
+      </Languages>
+    </inspection_tool>
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="en-us" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="9">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="li" />
+            <item index="7" class="java.lang.String" itemvalue="style" />
+            <item index="8" class="java.lang.String" itemvalue="background" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HttpUrlsUsage" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredUrls">
+        <list>
+          <option value="http://localhost" />
+          <option value="http://127.0.0.1" />
+          <option value="http://0.0.0.0" />
+          <option value="http://www.w3.org/" />
+          <option value="http://json-schema.org/draft" />
+          <option value="http://java.sun.com/" />
+          <option value="http://xmlns.jcp.org/" />
+          <option value="http://javafx.com/javafx/" />
+          <option value="http://javafx.com/fxml" />
+          <option value="http://maven.apache.org/xsd/" />
+          <option value="http://maven.apache.org/POM/" />
+          <option value="http://www.springframework.org/schema/" />
+          <option value="http://www.springframework.org/tags" />
+          <option value="http://www.springframework.org/security/tags" />
+          <option value="http://www.thymeleaf.org" />
+          <option value="http://www.jboss.org/j2ee/schema/" />
+          <option value="http://www.jboss.com/xml/ns/" />
+          <option value="http://www.ibm.com/webservices/xsd" />
+          <option value="http://activemq.apache.org/schema/" />
+          <option value="http://schema.cloudfoundry.org/spring/" />
+          <option value="http://schemas.xmlsoap.org/" />
+          <option value="http://cxf.apache.org/schemas/" />
+          <option value="http://primefaces.org/ui" />
+          <option value="http://tiles.apache.org/" />
+          <option value="http://data.pr4e.org" />
+          <option value="http://" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="JSHint" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="61">
+            <item index="0" class="java.lang.String" itemvalue="typer" />
+            <item index="1" class="java.lang.String" itemvalue="Pygments" />
+            <item index="2" class="java.lang.String" itemvalue="colorama" />
+            <item index="3" class="java.lang.String" itemvalue="ruff" />
+            <item index="4" class="java.lang.String" itemvalue="rich" />
+            <item index="5" class="java.lang.String" itemvalue="commonmark" />
+            <item index="6" class="java.lang.String" itemvalue="shellingham" />
+            <item index="7" class="java.lang.String" itemvalue="tqdm" />
+            <item index="8" class="java.lang.String" itemvalue="beautifulsoup4" />
+            <item index="9" class="java.lang.String" itemvalue="termcolor" />
+            <item index="10" class="java.lang.String" itemvalue="pyzt" />
+            <item index="11" class="java.lang.String" itemvalue="requests" />
+            <item index="12" class="java.lang.String" itemvalue="environ" />
+            <item index="13" class="java.lang.String" itemvalue="pep440" />
+            <item index="14" class="java.lang.String" itemvalue="pathspec" />
+            <item index="15" class="java.lang.String" itemvalue="pyflakes" />
+            <item index="16" class="java.lang.String" itemvalue="pytest" />
+            <item index="17" class="java.lang.String" itemvalue="iniconfig" />
+            <item index="18" class="java.lang.String" itemvalue="bump-version-pep440" />
+            <item index="19" class="java.lang.String" itemvalue="pluggy" />
+            <item index="20" class="java.lang.String" itemvalue="mypy-extensions" />
+            <item index="21" class="java.lang.String" itemvalue="black" />
+            <item index="22" class="java.lang.String" itemvalue="typing-extensions" />
+            <item index="23" class="java.lang.String" itemvalue="packaging" />
+            <item index="24" class="java.lang.String" itemvalue="pycodestyle" />
+            <item index="25" class="java.lang.String" itemvalue="toml" />
+            <item index="26" class="java.lang.String" itemvalue="click" />
+            <item index="27" class="java.lang.String" itemvalue="markdown-it-py" />
+            <item index="28" class="java.lang.String" itemvalue="flake8" />
+            <item index="29" class="java.lang.String" itemvalue="platformdirs" />
+            <item index="30" class="java.lang.String" itemvalue="mccabe" />
+            <item index="31" class="java.lang.String" itemvalue="mdurl" />
+            <item index="32" class="java.lang.String" itemvalue="isort" />
+            <item index="33" class="java.lang.String" itemvalue="pygments" />
+            <item index="34" class="java.lang.String" itemvalue="ninja" />
+            <item index="35" class="java.lang.String" itemvalue="pyproject_hooks" />
+            <item index="36" class="java.lang.String" itemvalue="typing_extensions" />
+            <item index="37" class="java.lang.String" itemvalue="jupyter-core" />
+            <item index="38" class="java.lang.String" itemvalue="jupyterlab-widgets" />
+            <item index="39" class="java.lang.String" itemvalue="notebook-shim" />
+            <item index="40" class="java.lang.String" itemvalue="jupyterlab-server" />
+            <item index="41" class="java.lang.String" itemvalue="jupyter-client" />
+            <item index="42" class="java.lang.String" itemvalue="jupyter-server" />
+            <item index="43" class="java.lang.String" itemvalue="jupyterlab-pygments" />
+            <item index="44" class="java.lang.String" itemvalue="jupyter-server-terminals" />
+            <item index="45" class="java.lang.String" itemvalue="prometheus-client" />
+            <item index="46" class="java.lang.String" itemvalue="django-embed-video" />
+            <item index="47" class="java.lang.String" itemvalue="pymemcache" />
+            <item index="48" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="49" class="java.lang.String" itemvalue="asgiref" />
+            <item index="50" class="java.lang.String" itemvalue="django-debug-toolbar" />
+            <item index="51" class="java.lang.String" itemvalue="django-redisboard" />
+            <item index="52" class="java.lang.String" itemvalue="redis" />
+            <item index="53" class="java.lang.String" itemvalue="sqlparse" />
+            <item index="54" class="java.lang.String" itemvalue="channels-redis" />
+            <item index="55" class="java.lang.String" itemvalue="channels" />
+            <item index="56" class="java.lang.String" itemvalue="Django" />
+            <item index="57" class="java.lang.String" itemvalue="uwsgi" />
+            <item index="58" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="59" class="java.lang.String" itemvalue="daphne" />
+            <item index="60" class="java.lang.String" itemvalue="Pillow" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N803" />
+          <option value="N802" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="hex" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="str.*" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,6 @@
+name: djazz-services
+services:
+  services:
+    build:
+      context: .
+      dockerfile: Dockerfile
