@@ -59,6 +59,7 @@ RUN set -eux; \
     echo 'export PATH=/opt/rabbitmq/sbin:$PATH' >> ~/.bashrc ; \
     echo "loopback_users.guest = false" >> /opt/rabbitmq/etc/rabbitmq/rabbitmq.conf; \
     echo "log.console = true" >> /opt/rabbitmq/etc/rabbitmq/rabbitmq.conf ; \
+    echo "log.console.level = warning" >> /opt/rabbitmq/etc/rabbitmq/rabbitmq.conf ; \
     /opt/rabbitmq/sbin/rabbitmq-plugins enable rabbitmq_management
 
 
