@@ -26,6 +26,14 @@ With Djazz Services, you can focus on writing your Djazz code without worrying a
 Using Djazz Services is easy, we assume you have already installed [Docker](https://docs.docker.com/) on your development computer or VM, and then you can start running Djazz Services by executing the following commands in your terminal: 
 
 ```bash
-docker run --it azataiot/djazz-services -p 5432:5432 -p 
+docker run --it --rm \
+    -p 1025:1025 \
+    -p 5432:5432 \
+    -p 5672:5672 \
+    -p 6379:6379 \
+    -p 8025:8025 \
+    -p 9000:9000 \
+    -p 9001:9001 \
+    azataiot/djazz-services
 ```
 
