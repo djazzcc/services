@@ -7,6 +7,9 @@
 # Services: Mailpit, MinIO, PostgreSQL, RabbitMQ, Redis
 # -----------------------------------------------------
 
+# Source common functions and variables
+source common.sh
+
 cat <<-'EOF'
 
      888  d8b
@@ -21,17 +24,10 @@ Y88b 888  888 888  888  d88P     d88P
          d88P
        888P"
 
-@azataiot - 2024 - Djazz!
-https://djazz.cc
+@azataiot - 2024 - (djazz-cc/services)
+$(ok "https://djazz.cc")
 EOF
 echo "djazz-services:$VERSION"
-
-
-
-
-
-
-
 
 # -------
 # Mailpit

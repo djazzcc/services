@@ -4,10 +4,11 @@
 # Author: @azataiot
 # Date: 2024-05-27
 # ----------------
-ARG VERSION=0.1.0
+
 ARG BASE_IMAGE=azataiot/alpine:latest
 FROM ${BASE_IMAGE} as builder
 ENV LANG en_US.utf8
+ARG VERSION=0.1.0
 # Update and upgrade the system
 RUN set -eux; \
     apk update; \
@@ -37,6 +38,7 @@ RUN set -eux; \
     chmod +x /usr/local/bin/mailpit; \
     rm -rf /tmp/mailpit
 
+RUN echo "builder Version: $VERSION"
 # ----------------
 # RabbitMQ Builder
 # ----------------
@@ -61,7 +63,7 @@ RUN set -eux; \
 
 FROM ${BASE_IMAGE} as final
 ENV LANG en_US.utf8
-ENV VERSION=${VERSION}
+ENV VERSION=$VERSION
 # Add packages
 RUN set -eux; \
     apk add --no-cache \
@@ -75,6 +77,7 @@ RUN set -eux; \
     mkdir -p /etc/supervisor.d ;\
     mkdir -p /opt/djazz/supervisor.d
 
+RUN echo "Version: $VERSION"
 # -------
 # Mailpit
 # -------
