@@ -61,7 +61,7 @@ setup_mailpit(){
   set_default_env "MP_UI_AUTH_FILE" "/tmp/mpauth"
 }
 
-start_mailpit(){
+prepare_mailpit(){
   # Copy mailpit ini file
   cp /opt/djazz/supervisor.d/mailpit.ini /etc/supervisor.d/mailpit.ini
   ok "Mailpit Web UI: $(highlight "http://localhost:8025")."
@@ -78,7 +78,7 @@ setup_minio(){
   ok "MinIO S3-API: $(highlight "http://localhost:9000")."
 }
 
-start_minio(){
+prepare_minio(){
   # Start MinIO server
   cp /opt/djazz/supervisor.d/minio.ini /etc/supervisor.d/minio.ini
 }
@@ -139,7 +139,7 @@ setup_postgres(){
   fi
 }
 
-start_postgres(){
+prepare_postgres(){
   # Start the PostgreSQL service (Add to supervisord for process management)
   cp /opt/djazz/supervisor.d/postgres.ini /etc/supervisor.d/postgres.ini
 }
@@ -151,9 +151,10 @@ setup_rabbitmq(){
   set_default_env "RABBITMQ_USER" "admin"
   set_default_env "RABBITMQ_PASSWORD" "admin"
   set_default_env "RABBITMQ_ENABLE_MANAGEMENT_UI" "true"
+  ok "RabbitMQ Web UI: $(highlight "http://localhost:15672")"
 }
 
-start_rabbitmq(){
+prepare_rabbitmq(){
   # Start RabbitMQ server
   cp /opt/djazz/supervisor.d/rabbitmq.ini /etc/supervisor.d/rabbitmq.ini
 }
@@ -169,9 +170,10 @@ setup_redis(){
   sed -i "s/bind 127.0.0.1/bind 0.0.0.0/" /etc/redis/redis.conf
   sed -i 's/^daemonize yes/daemonize no/' /etc/redis/redis.conf
   sed -i 's/^logfile .*/logfile ""/' /etc/redis/redis.conf
+  ok "Redis accepting connections on $(highlight "localhost:6379")"
 }
 
-start_redis(){
+prepare_redis(){
   # Start Redis server
   cp /opt/djazz/supervisor.d/redis.ini /etc/supervisor.d/redis.ini
 }
@@ -181,52 +183,67 @@ start_redis(){
 # Process the command line arguments
 # ----------------------------------
 
+start_mailpit(){
+  echo "Setting up Mailpit..."
+  info "📫 MAILPIT"
+  setup_mailpit
+  prepare_mailpit
+}
+
+start_minio(){
+  echo "Setting up MinIO..."
+  info "💾 MINIO"
+  setup_minio
+  prepare_minio
+}
+
+start_postgres(){
+  echo "Setting up PostgreSQL..."
+  info "🐘 POSTGRES"
+  setup_postgres
+  prepare_postgres
+}
+
+start_rabbitmq(){
+  echo "Setting up RabbitMQ..."
+  info "🐰 RABBITMQ"
+  setup_rabbitmq
+  prepare_rabbitmq
+}
+
+start_redis(){
+  echo "Setting up Redis..."
+  info "📌 REDIS"
+  setup_redis
+  prepare_redis
+}
 
 # shellcheck disable=SC2206
 split_args=($@)
 for arg in "${split_args[@]}"; do
     case $arg in
+        all)
+            info "Setting up all services..."
+            start_mailpit
+            start_minio
+            start_postgres
+            start_rabbitmq
+            start_redis
+            ok "All services are up and running."
+            ;;
         mailpit)
-            echo "Setting up Mailpit..."
-            info "📫 MAILPIT"
-            setup_mailpit
             start_mailpit
             ;;
         minio)
-            echo "Setting up MinIO..."
-            info "💾 MINIO"
-            setup_minio
             start_minio
             ;;
         postgres)
-            echo "Setting up PostgreSQL..."
-            info "🐘 POSTGRES"
-            setup_postgres
             start_postgres
             ;;
         rabbitmq)
-            echo "Setting up RabbitMQ..."
-            info "🐰 RABBITMQ"
-            setup_rabbitmq
             start_rabbitmq
             ;;
         redis)
-            echo "Setting up Redis..."
-            info "📌 REDIS"
-            setup_redis
-            start_redis
-            ;;
-        all)
-            info "Setting up all services..."
-            setup_mailpit
-            start_mailpit
-            setup_minio
-            start_minio
-            setup_postgres
-            start_postgres
-            setup_rabbitmq
-            start_rabbitmq
-            setup_redis
             start_redis
             ;;
         *)
