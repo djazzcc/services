@@ -133,7 +133,7 @@ VOLUME /etc/redis/
 
 # Copy the docker-entrypoint.sh script into the Docker image
 COPY ./scripts/entrypoint.sh /usr/local/bin/
-COPY ./scripts/logger.sh /usr/local/bin/logger.sh
+COPY ./scripts/logger.sh /usr/local/bin/logger
 COPY ./scripts/supervisord.conf /etc/supervisord.conf
 copy ./scripts/supervisor.d/* /opt/djazz/supervisor.d/
 
