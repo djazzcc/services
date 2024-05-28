@@ -1,4 +1,5 @@
 # Djazz Services
+![img.png](assets/hero.png)
 
 Djazz Services is an all-in-one development framework for building web applications and APIs with Django.
 
