@@ -55,7 +55,7 @@ warn() {
 }
 
 highlight() {
-  echo "${HIGHLIGHT}[djazz] $*${RESET}"
+  echo "${HIGHLIGHT}$*${RESET}"
 }
 
 ok() {

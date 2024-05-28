@@ -25,9 +25,10 @@ Y88b 888  888 888  888  d88P     d88P
        888P"
 
 @azataiot - 2024 - (djazz-cc/services)
-$(ok "https://djazz.cc")
+https://djazz.cc
 EOF
-echo "djazz-services:$VERSION"
+
+info "Starting the djazz services..."
 
 # -------
 # Mailpit

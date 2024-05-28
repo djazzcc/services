@@ -5,14 +5,16 @@
 # Date: 2024-05-27
 # ----------------
 
+ARG VERSION=0.1.0
 ARG BASE_IMAGE=azataiot/alpine:latest
 FROM ${BASE_IMAGE} as builder
 ENV LANG en_US.utf8
-ARG VERSION=0.1.0
+ENV VERSION=${VERSION}
 # Update and upgrade the system
 RUN set -eux; \
     apk update; \
-    apk upgrade
+    apk upgrade; \
+    echo "Building ${VERSION}"
 
 # ---------------
 # Mailpit Builder
@@ -38,7 +40,6 @@ RUN set -eux; \
     chmod +x /usr/local/bin/mailpit; \
     rm -rf /tmp/mailpit
 
-RUN echo "builder Version: $VERSION"
 # ----------------
 # RabbitMQ Builder
 # ----------------
@@ -63,8 +64,10 @@ RUN set -eux; \
 
 FROM ${BASE_IMAGE} as final
 ENV LANG en_US.utf8
-ENV VERSION=$VERSION
+ENV VERSION=${VERSION}
 # Add packages
+RUN echo "Building ${VERSION}"
+
 RUN set -eux; \
     apk add --no-cache \
         ncurses \
@@ -77,7 +80,6 @@ RUN set -eux; \
     mkdir -p /etc/supervisor.d ;\
     mkdir -p /opt/djazz/supervisor.d
 
-RUN echo "Version: $VERSION"
 # -------
 # Mailpit
 # -------
@@ -138,7 +140,7 @@ COPY ./scripts/entrypoint.sh /usr/local/bin/
 COPY ./scripts/common.sh /usr/local/bin/
 COPY ./scripts/logger.sh /usr/local/bin/logger
 COPY ./scripts/supervisord.conf /etc/supervisord.conf
-copy ./scripts/supervisor.d/* /opt/djazz/supervisor.d/
+COPY ./scripts/supervisor.d/* /opt/djazz/supervisor.d/
 
 # Make the script executable
 RUN chmod +x /usr/local/bin/entrypoint.sh
