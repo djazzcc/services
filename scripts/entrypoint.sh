@@ -54,6 +54,7 @@ setup_mailpit(){
   set_default_env "MAILPIT_USER" "mailpit"
   set_default_env "MAILPIT_PASSWORD" "mailpit"
   create_password_file "$MAILPIT_USER" "$MAILPIT_PASSWORD" "/tmp/mpauth"
+  ok "Mailpit user $(highlight "$MAILPIT_USER")"
 
   # Set default environment variables
   # ---------------------------------
@@ -63,6 +64,8 @@ setup_mailpit(){
 start_mailpit(){
   # Copy mailpit ini file
   cp /opt/djazz/supervisor.d/mailpit.ini /etc/supervisor.d/mailpit.ini
+  ok "Mailpit Web UI: $(highlight "http://localhost:8025")."
+  ok "Mailpit SMTP: $(highlight "localhost:1025")."
 }
 
 # -----
@@ -195,26 +198,31 @@ for arg in "${split_args[@]}"; do
     case $arg in
         mailpit)
             echo "Setting up Mailpit..."
+            info "📫 MAILPIT"
             setup_mailpit
             start_mailpit
             ;;
         minio)
             echo "Setting up MinIO..."
+            info "💾 MINIO"
             setup_minio
             start_minio
             ;;
         postgres)
             echo "Setting up PostgreSQL..."
+            info "🐘 POSTGRES"
             setup_postgres
             start_postgres
             ;;
         rabbitmq)
             echo "Setting up RabbitMQ..."
+            info "🐰 RABBITMQ"
             setup_rabbitmq
             start_rabbitmq
             ;;
         redis)
             echo "Setting up Redis..."
+            info "📌 REDIS"
             setup_redis
             start_redis
             ;;
@@ -252,7 +260,7 @@ done
 # -----------
 
 
-echo "Enabling selected services..."
+info "Adding selected services to supervisor..."
 supervisord -c /etc/supervisord.conf
 supervisorctl reread
 supervisorctl update
