@@ -151,13 +151,6 @@ setup_rabbitmq(){
   set_default_env "RABBITMQ_USER" "admin"
   set_default_env "RABBITMQ_PASSWORD" "admin"
   set_default_env "RABBITMQ_ENABLE_MANAGEMENT_UI" "true"
-
-  # Start the RabbitMQ server
-  set -m
-  rabbitmq-server > /dev/null 2>&1 &
-
-  # Stop the RabbitMQ service
-  rabbitmqctl stop > /dev/null 2>&1
 }
 
 start_rabbitmq(){
