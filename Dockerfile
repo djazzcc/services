@@ -58,7 +58,8 @@ RUN set -eux; \
     rm rabbitmq-server-generic-unix-3.13.2.tar.xz; \
     echo 'export PATH=/opt/rabbitmq/sbin:$PATH' >> ~/.bashrc ; \
     echo "loopback_users.guest = false" >> /opt/rabbitmq/etc/rabbitmq/rabbitmq.conf; \
-    echo "log.console = true" >> /opt/rabbitmq/etc/rabbitmq/rabbitmq.conf
+    echo "log.console = true" >> /opt/rabbitmq/etc/rabbitmq/rabbitmq.conf ; \
+    /opt/rabbitmq/sbin/rabbitmq-plugins enable rabbitmq_management
 
 
 
@@ -116,7 +117,6 @@ VOLUME /var/lib/postgresql/data
 # --------
 # RabbitMQ
 # --------
-ENV RABBITMQ_ENABLE_MANAGEMENT_UI=true
 COPY --from=builder /root/.bashrc /root/.bashrc
 COPY --from=builder /opt/rabbitmq/escript /opt/rabbitmq/escript
 COPY --from=builder /opt/rabbitmq/etc /opt/rabbitmq/etc

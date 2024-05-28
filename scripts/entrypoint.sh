@@ -118,7 +118,7 @@ setup_postgres(){
     pg_create_cluster
     # Configure the PostgreSQL database cluster
     pg_configure_cluster
-
+    ok "PostgreSQL accepting connections on $(highlight "localhost:5432")."
   else
     warn "PostgreSQL Database directory appears to contain a database; Skipping initialization..."
   fi
@@ -155,12 +155,6 @@ setup_rabbitmq(){
   # Start the RabbitMQ server
   set -m
   rabbitmq-server > /dev/null 2>&1 &
-
-  # Enable RabbitMQ Management UI
-  if [ "$RABBITMQ_ENABLE_MANAGEMENT_UI" = "true" ]; then
-    echo "Enabling RabbitMQ Management UI..."
-    rabbitmq-plugins enable rabbitmq_management > /dev/null 2>&1 &
-  fi
 
   # Stop the RabbitMQ service
   rabbitmqctl stop > /dev/null 2>&1
