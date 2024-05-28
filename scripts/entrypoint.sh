@@ -72,7 +72,10 @@ start_mailpit(){
 # minio
 # /usr/bin/minio
 setup_minio(){
-  mkdir -p /var/lib/minio/data
+  mkdir -p /var/lib/minio/data && chown -R minio:minio /var/lib/minio/data
+  ok "MinIO data directory created at $(highlight "/var/lib/minio/data")."
+  ok "MinIO Web UI: $(highlight "http://localhost:9001")."
+  ok "MinIO S3-API: $(highlight "http://localhost:9000")."
 }
 
 start_minio(){
